@@ -1,0 +1,15 @@
+.header {
+  background-color: #f1f1f1;
+}
+main {
+background-color: #00ABE1;
+height: 91.3vh;
+}
+.btn-login {
+  background-color: #A14893;
+  font-family: "Telefonica-Bold";
+  color: #f1f1f1
+}
+input:-webkit-autofill{
+  background-color: transparent !important;
+}
