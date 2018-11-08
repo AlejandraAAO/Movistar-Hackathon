@@ -4,6 +4,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ROUTES } from './app.routes'; // routes
 
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { BackofficeComponent } from './components/administrator/backoffice/backo
     RouterModule.forRoot(ROUTES),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    NgbModule
   ],
   providers: [
     SendEmailService

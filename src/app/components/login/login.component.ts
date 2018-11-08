@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuariosService } from '../services/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   model: any = {};
-  constructor() {}
+  dataUser: any = '';
+  status: string;
+
+  constructor(private _usuarioService: UsuariosService,
+    private _router: Router) {}
 
   ngOnInit() {}
   onSubmit() {
-    console.log(this.model);
+    this._usuarioService.getUsuario().subscribe(result => {
+      for (let i = 0; i < result.length; i++) {
+       if (result[i].email === this.model.email && result[i].password === this.model.password) {
+         console.log('datos correctos');
+         this.status = '1';
+         this._router.navigate(['/administrador']);
+       } else {
+         this.status = '0';
+       }
+      }
+    });
   }
 }
