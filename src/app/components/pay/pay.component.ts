@@ -2,7 +2,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SessionStorageService } from 'ngx-webstorage';
 import { Router } from '@angular/router';
-
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pay',
@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class PayComponent implements OnInit {
 
   @Input() producto;
-
-
+  closeResult: string;
+  toggle: Boolean = false;
   /*
     producto = [
     {
@@ -39,9 +39,28 @@ export class PayComponent implements OnInit {
 
 
 
-  constructor(private sessionSt: SessionStorageService, private _router: Router) { }
+  constructor(private sessionSt: SessionStorageService, private _router: Router, private modalService: NgbModal) { }
   ngOnInit() {
     console.log(this.producto);
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      console.log('ccccc');
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
   changeCheckbox(param) {
@@ -73,11 +92,9 @@ export class PayComponent implements OnInit {
 
   }
   sendSubmit() {
-
   /*   const sesion = this.sessionSt.store('nombre', 'rose') */
     console.log(this.dataUser);
-
-
+    this.toggle = true;
   }
 
   viewPago() {

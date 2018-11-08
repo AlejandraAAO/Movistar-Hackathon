@@ -1,4 +1,9 @@
 <app-navbar></app-navbar>
 <div class="container m-5">
   <button type="button" class="btn btn-outline-primary" (click)="sendEmail()">Enviar alerta</button>
+  <p *ngIf="status == '1'" class="pt-2">
+      <ngb-alert [dismissible]="false" [type]="'info'">
+        <strong>Enviado con exito.</strong>
+      </ngb-alert>
+    </p>
 </div>

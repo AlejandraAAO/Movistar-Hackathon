@@ -11,7 +11,7 @@ export class BackofficeComponent implements OnInit {
   data: any = null;
   users: any = [];
   dataUser: any = [];
-
+  status = '0';
   constructor(
     private _serviceEmail: SendEmailService,
     private _firebase: UsuariosService
@@ -33,6 +33,7 @@ export class BackofficeComponent implements OnInit {
         this._serviceEmail.sendEmail(template).subscribe(result2 => {
         });
       });
+      this.status = '1';
     });
   }
 

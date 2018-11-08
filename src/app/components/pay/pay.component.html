@@ -2,9 +2,11 @@
     <div class="row">
       <div class="col">
         <div *ngFor="let item of producto">
-          <div class="custom-control custom-checkbox" *ngIf="item !== undefined">
+          <div class="custom-control custom-checkbox" *ngIf="item !== undefined" [ngStyle]="{'text-decoration':item.estado === true ? 'line-through' : 'none' }">
             <input (click)="toggleCheck(item)" [checked]="item.estado" type="checkbox" class="custom-control-input" [id]="item.codigo"
               name="">
+
+
             <label class="custom-control-label" [for]="item.codigo">{{item.descripcion}}</label>
             <span>{{item.precio}}</span>
           </div>
@@ -12,11 +14,38 @@
         </div>
         <br>
         <div class="d-flex justify-content-end">
-          <button (click)="sendSubmit()" class="btn btn-primary reclamar" type="button">Hacer reclamo</button>
+          <button (click)="sendSubmit()" class="btn btn-primary reclamar" type="button" (click)="open(content)">Hacer reclamo</button>
           <button class="ml-2 btn btn-primary" type="button" (click)="viewPago()">Pagar</button>
         </div>
       </div>
 
     </div>
 
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Lista de reclamos</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <ng-container *ngIf="toggle === true">
+                <ul class="list-group" *ngFor="let item of dataUser.productos">
+                  <li class="list-group-item">{{ item.name }}</li>
+                </ul>
+              </ng-container>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Enviar</button>
+        </div>
+      </ng-template>
   </div>
+
+
+
+

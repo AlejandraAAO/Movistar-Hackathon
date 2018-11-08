@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../services/usuarios.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 declare let Culqi: any;
 
 @Component({
@@ -10,9 +11,30 @@ declare let Culqi: any;
 export class PaymentComponent implements OnInit {
   model: any = {};
   dataUser: any = '';
+  closeResult: string;
+  status = '0';
   constructor(
-    private _usuarioService: UsuariosService
+    private _usuarioService: UsuariosService,
+    private modalService: NgbModal
   ) { }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
 
   ngOnInit() {
     Culqi.publicKey = 'pk_test_8LziUpumbvUTLFnv';
@@ -20,6 +42,7 @@ export class PaymentComponent implements OnInit {
   }
   onSubmit() {
     Culqi.createToken();
+    this.status = '1';
 
     //     this._usuarioService.getUsuario().subscribe(result => {
     //       for (let i = 0; i < result.length; i++) {
