@@ -1,0 +1,184 @@
+/* .header {
+  background-color: #f1f1f1;
+  color:  #00ABE1
+} */
+main {
+background-color: #ffff;
+height: 91.3vh;
+
+}
+.title {
+  color:  #00ABE1
+}
+.form-rounded {
+  border-radius: 1rem;
+border-color: #00ABE1
+  }
+  .reciboiconos{
+    font-size: 40px ;
+    color:#00ABE1
+  }
+
+  @media (max-width: 600px) {
+    .reciboiconos{font-size: 25px;}
+    .title{
+      font-size: 20px;
+    }
+}
+
+.box-shadow {
+	background: white ;
+	padding: 1em ;
+  border-radius: 10px ;
+	border: 1px solid rgba(219, 223, 227, 0.303017) ;
+	box-shadow: 0px 5px 12px rgba(217, 226, 233, 0.5)
+  /* //padding: 1em
+  
+	//padding: 2em 1.5em 1em 1.5em */
+}
+
+.recommendations {
+  width: 40% ;
+  margin-right: 1em ;
+   margin: 0.7em 
+}
+
+.card-recommendations {
+  font-size: 14px ;
+  margin-top: 4em ;
+  margin-right: 1em ;
+  padding: 1em ;
+  display: inline-block
+}
+  
+  .money {
+    padding: 0.84em ;
+    color: green;
+    text-align: center
+  }
+    
+/* \:host /deep/ .selector-modal
+  color: $green */
+
+/* i.fa.fa-chevron-left, i.fa.fa-chevron-right
+  color: white
+
+i.fa.back-icon
+  color: $green */
+
+.wrapper-scroll {
+  position: relative ;
+  width:100% 
+}
+  
+  
+.scroll  {
+  overflow-x: auto ;
+  overflow-y: hidden ;
+  -webkit-overflow-scrolling: touch ;
+  white-space: nowrap ;
+  position: relative ;
+  overflow: auto
+}
+  
+
+.funds-contents {
+  
+  float: left ;
+  transition: transform .2s ease-in-out
+}
+
+.content-no-transition  {
+  	transition: none
+
+}
+
+/* .arrow-left  {
+  left: 0; 
+	[data-overflowing ="both"] ~ &, [data-overflowing="left"] ~ &
+		opacity: 1
+} */
+	
+.arrow-left {
+  left: 0;
+}
+[data-overflowing="both"] ~ .arrow-left, [data-overflowing="left"] ~ .arrow-left {
+  opacity: 1;
+}
+.arrow-right  {
+  right: 0;
+}
+[data-overflowing="both"] ~ .arrow-right , [data-overflowing="right"] ~ .arrow-right  {
+  opacity: 1;
+}
+
+
+.line-green {
+  height: 0.06em ;
+  background-image: radial-gradient(circle, #009B3A 62.98%, rgba(0, 155, 58, 0) 100%)
+
+}
+
+.back {
+  padding-bottom: 0.8em ;
+  font-size: 1.3em ;
+  color: green 
+  /* a
+    color: $green */
+}
+  
+.description {
+  width: 100% }
+ .recommendations {
+   font-size: 14px 
+ }
+ .result-recommendations {
+   padding: 0.3em 0 ;
+  justify-content: space-between ;
+  align-items: center
+ }
+.question {
+  text-decoration: underline !important ;
+  cursor: pointer 
+  
+}
+  
+ 
+/*
+ 
+
+*/
+/*   
+@include media-breakpoint-up(sm)
+  .description
+    width: 70% */
+/* 
+@include media-breakpoint-up(md)
+  .wrapper-scroll
+    width: 60%
+
+  .scroll 
+    overflow: hidden
+
+  .result-recommendations
+    padding: 0
+    justify-content: center
+
+  .btn-arrow
+    display: block
+    border-radius: 100%
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12), inset 0px 1px 0px rgba(255, 255, 255, 0.12)
+    background-color: #005DAB
+    position: absolute
+    top: 13em
+    opacity: 0
+    transition: opacity .1s */
+  
+/* .btn-login {
+  background-color: #A14893;
+  font-family: "Telefonica-Bold";
+  color:  #00ABE1
+} */
+/* input:-webkit-autofill{
+  background-color: transparent !important;
+} */
