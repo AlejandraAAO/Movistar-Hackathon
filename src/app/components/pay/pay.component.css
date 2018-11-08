@@ -1,5 +1,18 @@
 .btn{
     background-color: #00ABE1;
     font-family: "Telefonica-Bold";
-    color: #f1f1f1
+    color: #f1f1f1;
+    display: flex;
+    text-align: right;
+    
+}
+.custom-control{
+    display: flex;
+    justify-content: space-between;
+    font-family: "Telefonica-Regular";
+    
+  
+}
+input{
+    border-color: black;
 }
