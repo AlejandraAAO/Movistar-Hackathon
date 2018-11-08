@@ -3,9 +3,30 @@
 }
 
 main {
-  background-color: #00ABE1;
+  background-color: #f1f1f1;
   height: 91.3vh;
   }
 input {
 background-color: transparent;
  }
+
+.btn-login {
+  background-color: #A14893;
+  font-family: "Telefonica-Bold";
+  color: #f1f1f1;
+}
+.input-date {
+ padding-bottom: 0rem;
+}
+
+h2, input, span {
+  font-family: "Telefonica-TR";
+  color: #00ABE2;
+}
+
+.is-focused [class^=bmd-label]{
+  color: #00ABE2 !important;
+}
+.input-pay, input::placeholder {
+  color: #00ABE2 !important;
+}

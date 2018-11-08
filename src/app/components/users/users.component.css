@@ -5,14 +5,28 @@
 main {
 background-color: #ffff;
 height: 91.3vh;
-
 }
-.title {
+.container{
+  width: 100%;
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+   padding-top: 90px;
+}
+nav{
+  background-color: #00ABE1;
+  color: #fff
+}
+
+.title {  font-family: "Telefonica-Regular";
+
   color:  #00ABE1
 }
 .form-rounded {
   border-radius: 1rem;
-border-color: #00ABE1
+border-color: #00ABE1;
+
   }
   .reciboiconos{
     font-size: 40px ;
