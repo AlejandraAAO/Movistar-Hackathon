@@ -1,96 +1,78 @@
-<!--
-  <p>
-    users works
-  </p>
-  <input type="checkbox"  name="rememberLogin" ngModel>
-  <label> hola </label>
--->
 <main class="main">
+  <nav class="navbar  navbar-dark">
+    <div class="mx-auto text-center">
+      <h5>Bienvenida a tu recibo
+        <b>Movistar Hogar</b>
+      </h5>
+      <p>Noviembre, 2018</p>
+    </div>
+  </nav>
   <div class="container">
-    <nav class="navbar fixed-top navbar-dark">
-      <div class="mx-auto text-center" style="widows: 200px;">
-        <br />
-        <h5>Bienvenida a tu recibo <b>Movistar Hogar</b></h5>
-        <p>Noviembre, 2018</p>
-      </div>
-    </nav>
-    <h3 class="text-center title pt-5">¡Hola, {{ name }}!</h3>
-    <h4 class="text-center title pt-5 justify">
-      Aquí puedes ver el detalle de tus planes y servicios. <br />
-      Si no reconoces algún cargo, seleccionalo y haz click en
-      <i>"hacer reclamo"</i>. Tu monto total a pagar es <b> s/.129</b>.
-    </h4>
-    <br />
-
     <div class="row">
       <div class="col-12">
+        <div>
+          <h3 class="text-center title pt-5 mx-auto">¡Hola, {{ name }}! </h3>
+          <h4 class="text-center title justify mx-auto">
+            Tu monto total a pagar es
+            <b> s/401.9</b>.
+          </h4>
+        </div>
+        <br>
         <div *ngFor="let item of arrPaquete;">
           <ngb-accordion #acc="ngbAccordion" activeIds="1-header">
             <ngb-panel id="{{item.codigoUnico}}">
-              <!--  -->
               <ng-template ngbPanelTitle>
-                <span>{{ item.paquete.nombre}} </span>
-                <span>{{ item.paquete.precio }}</span>
+                <div class="row">
+                  <div class="col-3 ">
+                    <h4 class=" title titulo text-white ">
+                      <strong>{{ item.paquete.nombre}}</strong>
+                    </h4>
+                    <h4 class="title titulo text-white ">{{ item.paquete.precio }} </h4>
+                  </div>
+                </div>
+
               </ng-template>
               <ng-template ngbPanelContent>
-                <ng-container >
-                  <div class="card" >
+                <ng-container>
+                  <div class="card">
                     <div class="card-body" *ngFor="let x of item.paquete.productos">
-                      <div *ngIf="x !== undefined">
-                        <h5 class="card-title">{{ x.descripcion }}</h5>
-                        <p class="card-text">Precio: {{ x.precio }}</p>
-                      </div>
+                      <ng-container *ngIf="x !== undefined">
+                        <div class="custom-control ">
+                          <h5> {{ x.descripcion }}</h5>
+                          <h5> s/ {{ x.precio }}</h5>
+                        </div>
+                      </ng-container>
                     </div>
                   </div>
 
-                  <div class="d-flex flex-row-reverse ">
-                      <div class="col-8">
-                        <div id="accordion">
-                          <div class="card">
-                            <div class="card-header text-center">
-                              <div class="row">
-                                <div class="col-9">
-                                  <h3 class=" title">Beneficio con cargos adicionales</h3>
-                                </div>
-
-                                <div class="col-2">
-                                  <button
-                                    class="btn"
-                                    id="headingTwo"
-                                    data-toggle="collapse"
-                                    data-target="#collapseTwo"
-                                    aria-expanded="true"
-                                    aria-controls="collapseOne"
-                                  >
-                                    <i class="fas fa-chevron-down"></i>
-                                  </button>
-                                </div>
+                  <div class="d-flex flex-row-reverse pt-5 ">
+                    <div class="col-11">
+                      <div id="accordion">
+                        <div class="card">
+                          <div class="card-header text-center">
+                            <div class="row">
+                              <div class="col-10">
+                                <h3 class="title adicional">Cargos adicionales</h3>
                               </div>
-                              <!--
-                                <h5 class="mb-0">
-                                              <button class="btn btn-link title" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <h3 class=" title" > <strong>Trio Fijo  <i class="fas fa-phone-volume"></i> </strong></h3>
-                                               <h4>s/. 129</h4>
-                                              </button>
-                                              <button class="btn" ><i class="fas fa-chevron-down"></i></button>
-                                            </h5>
-                              -->
+
+                              <div class="col-2">
+                                <button class="btn" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                                  <i class="fas fa-chevron-down"></i>
+                                </button>
+                              </div>
                             </div>
 
-                            <div
-                              id="collapseTwo"
-                              class="collapse show"
-                              aria-labelledby="headingTwo"
-                              data-parent="#accordion"
-                            >
-                              <div class="card-body">
-                                <app-pay [producto]="item.adicionales"></app-pay>
-                              </div>
+                          </div>
+
+                          <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                              <app-pay [producto]="item.adicionales"></app-pay>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
 
                 </ng-container>
 
@@ -100,71 +82,9 @@
 
         </div>
 
-        <!--
-        <div id="accordion" *ngFor="let item of arrPaquete">
-          <div class="card">
-            <div class="card-header text-center">
-              <div class="row">
-                <div class="col-4">
-                  <h3 class=" title"><strong>{{ item.nombre }}</strong> s/. {{ item.precio }}</h3>
-                </div>
-                <div class="col-2">
-                  <i class="reciboiconos fas fa-phone-volume"></i>
-                </div>
-                <div class="col-2"><i class="reciboiconos fas fa-tv"></i></div>
-                <div class="col-2"><i class="reciboiconos fas fa-tv"></i></div>
-                <div class="col-2">
-                  <button
-                    class="btn"
-                    [id]="item.codigoUnico"
-                    data-toggle="collapse"
-                    [data-target]="{{item.codigo }}"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    <i class="fas fa-chevron-down"></i>
-                  </button>
-                </div>
-              </div>
-
-
-                <h5 class="mb-0">
-                              <button class="btn btn-link title" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <h3 class=" title" > <strong>Trio Fijo  <i class="fas fa-phone-volume"></i> </strong></h3>
-                               <h4>s/. 129</h4>
-                              </button>
-                              <button class="btn" ><i class="fas fa-chevron-down"></i></button>
-                            </h5>
-
-
-            </div>
-
-            <div
-              [id]="item.codigoUnico"
-              class="collapse show"
-              aria-labelledby="headingOne"
-              data-parent="#accordion"
-            >
-              <div class="card-body rounded">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                excepteur butcher vice lomo. Leggings occaecat craft beer
-                farm-to-table, raw denim aesthetic synth nesciunt you probably
-                haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
     <br />
-    <!-- <div class="row"> -->
 
-    <!-- </div> -->
   </div>
 </main>
