@@ -3,7 +3,7 @@
   <div
     class="container d-flex flex-column justify-content-center align-items-center"
   >
-    <h1 class="text-center pt-5">Mi Recibo Digital</h1>
+    <h1 class="text-center pt-5">{{ title }}</h1>
     <form class="form-login col-sm-12 col-md-6" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group mt-3">
         <label for="email" class="bmd-label-floating"

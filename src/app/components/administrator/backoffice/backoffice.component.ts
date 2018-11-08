@@ -31,7 +31,6 @@ export class BackofficeComponent implements OnInit {
       this.dataUser.forEach(data => {
         const template = this.template(data.email, data.name);
         this._serviceEmail.sendEmail(template).subscribe(result2 => {
-          console.log(result2);
         });
       });
     });

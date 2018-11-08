@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChildren } from '@angular/core';
 import { UserPaqueteService } from '../services/userPaquete.service';
 import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
+import { SessionStorageService } from 'ngx-webstorage';
+
 
 @Component({
   selector: 'app-users',
@@ -15,15 +17,19 @@ export class UsersComponent implements OnInit {
   adicionales: any;
   arrPaquete: any = [];
   arrProductos: any = [];
+  idCliente: number;
+  name;
 
-  constructor(private _paqueteUser: UserPaqueteService, config: NgbAccordionConfig) {
+  constructor(private _paqueteUser: UserPaqueteService, config: NgbAccordionConfig, private sessionSt: SessionStorageService) {
     config.closeOthers = true;
     config.type = 'info';
   }
 
   ngOnInit() {
+    this.idCliente = +this.sessionSt.retrieve('idCliente');
+    this.name = this.sessionSt.retrieve('nombreCliente');
     this._paqueteUser.getUserPaquete().subscribe(result => {
-      const user = result.filter(x => x.idCliente === 1)[0];
+      const user = result.filter(x => x.idCliente === this.idCliente)[0];
       // console.log(user.paquetes);
       for (let i = 0; i < user.paquetes.length; i++) {
         if (user.paquetes[i] === undefined) {
