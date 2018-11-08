@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<main id="formCulqi">
+  <div  class="formCulqi container d-flex flex-column justify-content-center align-items-center">
+  <h3 class="text-center pt-2">Realizar Pago</h3>
+  <form class="form-login text-white col-sm-12 col-md-6" name="form">
+    <div class="form-group mt-3">
+      <label class="bmd-label-floating text-white">
+      Ingresa tu email</label>
+      <input
+      type="email"
+      size="50"
+      data-culqi="card[email]"
+      id="card[email]"
+      class="form-control text-white"
+      required>
+    </div>
+    <div class="form-group mt-3">
+      <label class="bmd-label-floating text-white">Número de tarjeta</label>
+        <input
+        type="text"
+        size="20"
+        data-culqi="card[number]"
+        class="form-control text-white"
+        id="card[number]"
+        required>
+    </div>
+    <div class="form-group mt-3">
+      <label class="bmd-label-floating text-white">CVV</label>
+      <input
+      type="text"
+      size="4"
+      data-culqi="card[cvv]"
+      id="card[cvv]"
+      class="form-control text-white"
+      required>
+    </div>
+    <div class="form-group mt-3">
+      <label>
+        <span class="text-white">Fecha expiración (MM/YYYY)</span>
+        <input size="2" data-culqi="card[exp_month]" id="card[exp_month]">
+        <span>/</span>
+        <input size="4" data-culqi="card[exp_year]" id="card[exp_year]">
+      </label>
+
+    </div>
+    <button id="buyButton">PAGAR</button>
+  </form>
+</div>
+</main>
+<section id="sucess" class="sucess">
+  PAGO EXITOSO
+</section>
