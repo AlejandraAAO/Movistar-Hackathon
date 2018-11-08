@@ -15,10 +15,17 @@
   src:url('/assets/fonts/TelefonicaText-Bold.ttf')
 }
 
+@font-face {
+  font-family: "Telefonica-TR";
+  src:url('/assets/fonts/TelefonicaText-Regular.ttf')
+}
+
 h1, h3 {
-  font-family: "Telefonica-Hand";
+  font-family: "Telefonica-TR";
   color: #f1f1f1;
 }
+
+
 
 label {
   font-family: "Telefonica-Regular";
