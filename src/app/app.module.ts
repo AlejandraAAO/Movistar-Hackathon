@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { BackofficeComponent } from './components/administrator/backoffice/backoffice.component';
 import { PayComponent } from './components/pay/pay.component';
 import { Ng2Webstorage } from 'ngx-webstorage'
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +27,11 @@ import { Ng2Webstorage } from 'ngx-webstorage'
     PaymentComponent,
     AdministratorComponent,
     BackofficeComponent,
-    PayComponent
+    PayComponent,
+    UsersComponent
   ],
   imports: [
+    
     BrowserModule,
     FormsModule,
   

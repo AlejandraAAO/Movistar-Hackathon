@@ -3,6 +3,7 @@ import { AdministratorComponent } from './components/administrator/administrator
 import { BackofficeComponent } from './components/administrator/backoffice/backoffice.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { PayComponent } from './components/pay/pay.component';
+import { UsersComponent } from './components/users/users.component';
 
 export const ROUTES: Routes = [
 
@@ -11,4 +12,5 @@ export const ROUTES: Routes = [
   { path: 'administrador', component: AdministratorComponent },
   { path: 'backoffice', component: BackofficeComponent },
   { path: 'pagos', component: PayComponent},
+  {path : 'users' , component : UsersComponent }
 ];
