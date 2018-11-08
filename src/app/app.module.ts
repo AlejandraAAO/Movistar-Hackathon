@@ -15,6 +15,7 @@ import { SendEmailService } from './components/services/send-email.service';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { RouterModule } from '@angular/router';
 import { BackofficeComponent } from './components/administrator/backoffice/backoffice.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,11 @@ import { BackofficeComponent } from './components/administrator/backoffice/backo
     NavbarComponent,
     PaymentComponent,
     AdministratorComponent,
-    BackofficeComponent
+    BackofficeComponent,
+    UsersComponent
   ],
   imports: [
+    
     BrowserModule,
     FormsModule,
     HttpClientModule,
