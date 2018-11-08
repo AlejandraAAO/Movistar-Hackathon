@@ -12,9 +12,9 @@ import { LoginComponent } from './components/login/login.component';
 export const ROUTES: Routes = [
 
   // Administrator
-  { path: '', component: LoginComponent},
+  { path: '', component: LoginComponent },
+  { path: 'pago', component: PaymentComponent },
   { path: 'administrador', component: AdministratorComponent },
   { path: 'backoffice', component: BackofficeComponent },
-  { path: 'pagos', component: PayComponent},
-  {path : 'users' , component : UsersComponent }
+  { path : 'reclamos' , component : UsersComponent },
 ];

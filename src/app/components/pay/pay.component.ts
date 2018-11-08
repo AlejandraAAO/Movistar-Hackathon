@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SessionStorageService } from 'ngx-webstorage';
 
 
@@ -7,7 +7,10 @@ import { SessionStorageService } from 'ngx-webstorage';
   templateUrl: './pay.component.html',
   styleUrls: ['./pay.component.css']
 })
-export class PayComponent {
+export class PayComponent implements OnInit {
+
+  @Input() producto;
+  /*
     producto = [
     {
       'categoria': 'lineas',
@@ -26,24 +29,20 @@ export class PayComponent {
       'estado': false
     }
   ];
+  */
   dataUser:any = {};
   dataProduct: any=[];
 
 
 
-  constructor(private sessionSt: SessionStorageService) {
-
-
-
+  constructor(private sessionSt: SessionStorageService) { }
+  ngOnInit() {
+    console.log(this.producto);
   }
-
- 
-
+  
   changeCheckbox(param) {
     console.log(param),
     console.log();
-
-    
   }
   toggleCheck(param){
    if(param.estado===false){
@@ -59,19 +58,19 @@ export class PayComponent {
        return s.id === param.codigo;
      });
      if (index !== -1) this.dataProduct.splice(index, 1);
-     
+
    }
    this.dataUser={
      'codigoCliente':'123',
      'productos': this.dataProduct
    }
-  
+
   }
   sendSubmit() {
-    
+
   /*   const sesion = this.sessionSt.store('nombre', 'rose') */
     console.log(this.dataUser);
-    
+
 
   }
 }

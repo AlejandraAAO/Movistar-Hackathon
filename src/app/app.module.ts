@@ -17,8 +17,10 @@ import { AdministratorComponent } from './components/administrator/administrator
 import { RouterModule } from '@angular/router';
 import { BackofficeComponent } from './components/administrator/backoffice/backoffice.component';
 import { PayComponent } from './components/pay/pay.component';
-import { Ng2Webstorage } from 'ngx-webstorage'
+import { Ng2Webstorage } from 'ngx-webstorage';
 import { UsersComponent } from './components/users/users.component';
+import { UserPaqueteService } from './components/services/userPaquete.service';
+import { UsuariosService } from './components/services/usuarios.service';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,8 @@ import { UsersComponent } from './components/users/users.component';
     UsersComponent
   ],
   imports: [
-    
     BrowserModule,
     FormsModule,
-  
     ReactiveFormsModule,
     Ng2Webstorage,
     HttpClientModule,
@@ -43,10 +43,11 @@ import { UsersComponent } from './components/users/users.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
      NgbModule
-
   ],
   providers: [
-    SendEmailService
+    SendEmailService,
+    UserPaqueteService,
+    UsuariosService
   ],
   bootstrap: [AppComponent]
 })
