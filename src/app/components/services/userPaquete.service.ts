@@ -11,6 +11,7 @@ export class UserPaqueteService {
   paquetes: Observable<any[]>;
   userProducto: Observable<any[]>;
   filterData: Observable<any[]>;
+  adicionales: Observable<any[]>;
 
   constructor(private _db: AngularFireDatabase) {}
   // Metodos para obtener los datos de la base de datos de Firebase
@@ -23,6 +24,11 @@ export class UserPaqueteService {
   getPaquete() {
     this.paquetes = this._db.list('paquetes').valueChanges();
     return this.paquetes;
+  }
+
+  getAdicionales() {
+    this.adicionales = this._db.list('adicionales').valueChanges();
+    return this.adicionales;
   }
 
   getUserPaquete() {

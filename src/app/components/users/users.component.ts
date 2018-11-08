@@ -19,6 +19,8 @@ export class UsersComponent implements OnInit {
   arrProductos: any = [];
   idCliente: number;
   name;
+  adicionalesPaquete;
+  dataTotal;
 
   constructor(private _paqueteUser: UserPaqueteService, config: NgbAccordionConfig, private sessionSt: SessionStorageService) {
     config.closeOthers = true;
@@ -30,13 +32,21 @@ export class UsersComponent implements OnInit {
     this.name = this.sessionSt.retrieve('nombreCliente');
     this._paqueteUser.getUserPaquete().subscribe(result => {
       const user = result.filter(x => x.idCliente === this.idCliente)[0];
-      // console.log(user.paquetes);
+
       for (let i = 0; i < user.paquetes.length; i++) {
+        // console.log(user);
+
+
         if (user.paquetes[i] === undefined) {
           continue;
         }
         this._paqueteUser.getPaquete().subscribe(result4 => {
+          // console.log(result4);
+
           this.paquetes = result4.filter(x => x.idPaquete === user.paquetes[i].idPaquete)[0];
+          // console.log(user.paquetes[i].adicionales);
+          // console.log(result4);
+
           // this.adicionales = result4.filter(x => x.idPaquete === user.paquetes[i].idPaquete)[0];
           this.adicionales = user.adicionales;
 
@@ -45,15 +55,19 @@ export class UsersComponent implements OnInit {
             if (element !== undefined) {
               // console.log(element);
               productos.push(element);
+              // console.log(productos);
             }
           });
-          this.arrPaquete.push(this.paquetes);
+          this.arrPaquete.push( {
+            'paquete' : this.paquetes,
+            'adicionales': user.paquetes[i].adicionales
+          });
           // this.arrPaquete.paquetes.push(productos);
           // this.arrPaquete = this.arrPaquete.p = 'xx';
           // console.log(this.arrPaquete);
         });
       }
-      // console.log(this.arrPaquete);
+      console.log(this.arrPaquete);
     });
   }
 }

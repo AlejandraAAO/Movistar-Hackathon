@@ -1,22 +1,20 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div *ngFor="let item of producto">
-        <div class="custom-control custom-checkbox" *ngIf="item !== undefined">
-          <input (click)="toggleCheck(item)" [checked]="item.estado" type="checkbox" class="custom-control-input" [id]="item.codigo"
-            name="">
-          <label class="custom-control-label" [for]="item.codigo">{{item.descripcion}}</label>
-          <span>{{item.precio}}</span>
+    <div class="row">
+      <div class="col">
+        <div *ngFor="let item of producto">
+          <div class="custom-control custom-checkbox" *ngIf="item !== undefined">
+            <input (click)="toggleCheck(item)" [checked]="item.estado" type="checkbox" class="custom-control-input" [id]="item.codigo"
+              name="">
+            <label class="custom-control-label" [for]="item.codigo">{{item.descripcion}}</label>
+            <span>{{item.precio}}</span>
+          </div>
+
         </div>
+        <br>
 
+        <button (click)="sendSubmit()" class="btn btn-primary" type="button">Submit form</button>
       </div>
-      <br>
 
-      <button (click)="sendSubmit()" class="btn btn-primary" type="button">Submit form</button>
     </div>
 
   </div>
-
-</div>
-
-
