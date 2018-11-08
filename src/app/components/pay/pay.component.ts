@@ -1,6 +1,7 @@
 
 import { Component, Input, OnInit } from '@angular/core';
 import { SessionStorageService } from 'ngx-webstorage';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class PayComponent implements OnInit {
 
 
 
-  constructor(private sessionSt: SessionStorageService) { }
+  constructor(private sessionSt: SessionStorageService, private _router: Router) { }
   ngOnInit() {
     console.log(this.producto);
   }
@@ -77,5 +78,9 @@ export class PayComponent implements OnInit {
     console.log(this.dataUser);
 
 
+  }
+
+  viewPago() {
+    this._router.navigate(['/pago']);
   }
 }

@@ -22,15 +22,15 @@
           <ngb-accordion #acc="ngbAccordion" activeIds="1-header">
             <ngb-panel id="{{item.codigoUnico}}">
               <ng-template ngbPanelTitle>
-                <div class="row">
-                  <div class="col-3 ">
-                    <h4 class=" title titulo text-white ">
-                      <strong>{{ item.paquete.nombre}}</strong>
-                    </h4>
-                    <h4 class="title titulo text-white ">{{ item.paquete.precio }} </h4>
-                  </div>
+                <div class="d-flex justify-content-between">
+                  <h4 class="title titulo">
+                    <strong>{{ item.paquete.nombre}}</strong>
+                  </h4>
+                  <img src="assets/img/mouse@2x.png" alt="" width="30px" height="30px">
+                  <img src="assets/img/fijo@2x.png" alt="" width="30px" height="30px">
+                  <img src="assets/img/grupo1.png" alt="" width="30px" height="30px">
+                  <h4 class="title titulo">{{ item.paquete.precio }} </h4>
                 </div>
-
               </ng-template>
               <ng-template ngbPanelContent>
                 <ng-container>

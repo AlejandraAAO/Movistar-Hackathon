@@ -1,11 +1,11 @@
 
-* { box-sizing: border-box } 
+* { box-sizing: border-box }
 
 
 main {
 background-color: #ffff;
 height: 91.3vh;
-  
+
 }
 .data{
   width: 10px;
@@ -43,6 +43,19 @@ border-color: #00ABE1;
   .reciboiconos{
     font-size: 40px ;
     color:#00ABE1
+  }
+
+  .card-header.bg-info {
+    background-color: white !important;
+    color:#00ABE1 !important;
+  }
+
+  .btn.btn-link.collapsed {
+    color:white !important;
+  }
+
+  .btn.btn-link.collapsed, .btn.btn-link {
+    width: 100%;
   }
 
   @media (max-width: 600px) {

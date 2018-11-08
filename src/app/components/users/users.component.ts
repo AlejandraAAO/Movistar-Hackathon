@@ -2,12 +2,14 @@ import { Component, OnInit, ViewChildren } from '@angular/core';
 import { UserPaqueteService } from '../services/userPaquete.service';
 import {NgbAccordionConfig} from '@ng-bootstrap/ng-bootstrap';
 import { SessionStorageService } from 'ngx-webstorage';
+import { ViewEncapsulation } from '@angular/core';
 
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
+  encapsulation: ViewEncapsulation.None,
   providers: [NgbAccordionConfig]
 })
 export class UsersComponent implements OnInit {

@@ -4,15 +4,20 @@
     color: #f1f1f1;
     display: flex;
     text-align: right;
-    
+
 }
 .custom-control{
     display: flex;
     justify-content: space-between;
     font-family: "Telefonica-Regular";
-    
-  
+
+
 }
 input{
     border-color: black;
+}
+
+.reclamar {
+  background-color: red;
+  color: white
 }
