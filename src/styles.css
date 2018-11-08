@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import "bootstrap/scss/bootstrap-grid.scss"; */
+@font-face {
+  font-family: "Telefonica-Hand";
+  src:url('/assets/fonts/Telefonica-Hand.ttf')
+}
+
+@font-face {
+  font-family: "Telefonica-Regular";
+  src:url('/assets/fonts/Telefonica-Regular.ttf')
+}
+
+@font-face {
+  font-family: "Telefonica-Bold";
+  src:url('/assets/fonts/TelefonicaText-Bold.ttf')
+}
+
+h1, h3 {
+  font-family: "Telefonica-Hand";
+  color: #f1f1f1;
+}
+
+label {
+  font-family: "Telefonica-Regular";
+}

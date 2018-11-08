@@ -7,6 +7,10 @@ import { environment } from 'src/environments/environment';
 import { ROUTES } from './app.routes'; // routes
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import {FormsModule} from '@angular/forms';
+import { PaymentComponent } from './components/payment/payment.component';
 import { SendEmailService } from './components/services/send-email.service';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { RouterModule } from '@angular/router';
@@ -15,11 +19,15 @@ import { BackofficeComponent } from './components/administrator/backoffice/backo
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    NavbarComponent,
+    PaymentComponent,
     AdministratorComponent,
     BackofficeComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
     AngularFireModule.initializeApp(environment.firebase),

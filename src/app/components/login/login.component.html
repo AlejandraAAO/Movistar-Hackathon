@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<main class="main">
+  <div
+    class="container d-flex flex-column justify-content-center align-items-center"
+  >
+    <h1 class="text-center pt-5">Mi Movistar</h1>
+    <h3 class="text-center pt-2">Recibo Digital</h3>
+    <form class="form-login text-white col-sm-12 col-md-6" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group mt-3">
+        <label for="email" class="bmd-label-floating text-white"
+          >Ingresa tu correo electrónico</label
+        >
+        <input
+          type="email"
+          class="form-control text-white"
+          id="email"
+          aria-describedby="emailHelp"
+          name="email"
+          [(ngModel)]="model.email"
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+          required
+          email
+        />
+        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors.required">Debes ingresar un email</div>
+          <div *ngIf="email.errors.email">Email invalido</div>
+      </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="password" class="bmd-label-floating text-white"
+          >Ingresa tu contraseña</label
+        >
+        <input
+          type="password"
+          class="form-control text-white"
+          id="password"
+          name="password"
+          [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6"
+          required
+        />
+        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+          <div *ngIf="password.errors.required">Debes ingresar una contraseña</div>
+          <div *ngIf="password.errors.minlength">Tu contraseña debe tener como minimo 6 caracteres</div>
+      </div>
+      </div>
+      <div class="form-group m-0 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-login">
+          Ingresar
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
