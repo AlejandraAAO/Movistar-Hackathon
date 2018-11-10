@@ -43,7 +43,7 @@ export class BackofficeComponent implements OnInit {
       message: {
         html:
           `<p style="color:black; font-size:16px">` + `Hola ` + `${name} ` + `</p>` +
-          `<p style="color:black; font-size:16px">` + `Te comunicamos que ya puedes ver tu recibo en: <a href='www.google.com'>Recibo</a>` + `</p>`,
+          `<p style="color:black; font-size:16px">` + `Te comunicamos que ya puedes ver tu recibo en: <a href='zesty-glue.surge.sh'>Recibo</a>` + `</p>`,
         text: 'Movistar',
         subject: 'Notificación de pago',
         from_email: 'Movistar@laboratoria.la',
